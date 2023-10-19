@@ -15,7 +15,6 @@ function validateQuery() {
     const instructionString = "Please provide an SQL query";
     const selectAndInsertErrorMessage = "INVALID SQL QUERY: Both SELECT and INSERT are not allowed for security reasons!";
     const invalidSqlMessage = "INVALID SQL QUERY!";
-    const invalidSqlMessage2 = "Invalid SQL query. It contains forbidden keywords.";
 
     const query = document.getElementById("sql_query").value;
 
@@ -54,7 +53,7 @@ function sendQuery(query) {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log("Success:", data);
+            console.log(successMessage, data);
             console.log(data.message);
             document.getElementById("feedback_container").innerHTML = defaultMessage;
             document.getElementById("response").innerHTML = `${data.message}`;
@@ -99,14 +98,14 @@ function populateTable(patientRecords) {
     table.innerHTML = "";
     const headerCells = ["Patient ID", "Name", "Date of Birth"];
 
-    const headerRow = table.createTHead().insertRow(0); // Create a table head
+    const headerRow = table.createTHead().insertRow(0); // Create a table head and a new row at pos 0
     for (let i = 0; i < headerCells.length; i++) {
-        const headerCell = document.createElement("th"); // Create a th element
+        const headerCell = document.createElement("th"); // Iterate over the header cells array
         headerCell.textContent = headerCells[i];
-        headerRow.appendChild(headerCell);
+        headerRow.appendChild(headerCell); // Appended to the header row (table head)
     }
     for (let i = 0; i < patientRecords.length; i++) {
-        const patient = patientRecords[i];
+        const patient = patientRecords[i]; // retrieve patient obj from array
 
         const row = table.insertRow(i + 1); // i + 1 to skip the header row
 
