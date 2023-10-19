@@ -40,8 +40,3 @@ Only SELECT and INSERT queries are currently supported.
 For the sake of security, avoid using complex combinations of SQL statements.
 Contributing
 If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
-
-# License
-This project is open source. See the LICENSE file for more details.
-
-Feel free to adjust this template according to your lab's specifics and any additional information you think is relevant!
